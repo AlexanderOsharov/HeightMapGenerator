@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.15)
-
 project(HeightMapGenerator LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -27,13 +26,16 @@ file(GLOB HEADERS "include/*.h")
 
 add_library(HeightMapGenerator STATIC ${SOURCES} ${HEADERS})
 
-target_include_directories(HeightMapGenerator PUBLIC 
+# Подключение заголовочных файлов
+target_include_directories(HeightMapGenerator PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
-    ${CMAKE_BINARY_DIR}/ImageProcessingLibrary/include
+    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/ImageProcessingLibrary/include>
+    $<INSTALL_INTERFACE:include/ImageProcessingLibrary>
 )
 
-target_link_libraries(HeightMapGenerator PRIVATE ImageProcessingLibrary)
+# Связывание с ImageProcessingLibrary
+target_link_libraries(HeightMapGenerator PRIVATE ImageProcessing)
 
 # Установка библиотеки
 install(TARGETS HeightMapGenerator

@@ -1,12 +1,12 @@
-#ifndef HEIGHTMAPGENERATOR_H
-#define HEIGHTMAPGENERATOR_H
+#ifndef HEIGHTMAPTOMESHCONVERTER_H
+#define HEIGHTMAPTOMESHCONVERTER_H
 
-#include "IHeightMapGenerator.h"
+#include "TriangleMesh.h"
 #include <vector>
 
-class HeightMapGenerator {
+class HeightMapToMeshConverter {
 public:
-    static std::vector<std::vector<float>> generate(const std::string& type, int width, int height);
+    static TriangleMesh convert(const std::vector<std::vector<float>>& heightMap, float scale = 1.0f);
 };
 
-#endif // HEIGHTMAPGENERATOR_H
+#endif // HEIGHTMAPTOMESHCONVERTER_H

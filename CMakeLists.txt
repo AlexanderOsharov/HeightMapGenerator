@@ -32,6 +32,8 @@ target_include_directories(HeightMapGenerator PUBLIC
     $<INSTALL_INTERFACE:include>
     $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/ImageProcessingLibrary/include>
     $<INSTALL_INTERFACE:include/ImageProcessingLibrary>
+    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/ImageProcessingLibrary/include/third_party>
+    $<INSTALL_INTERFACE:include/ImageProcessingLibrary/third_party>
 )
 
 # Связывание с ImageProcessingLibrary
